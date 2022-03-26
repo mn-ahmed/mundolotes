@@ -20,6 +20,7 @@
         <field name="arch" type="xml">
             <xpath expr="//field[@name='product_categ_id']" position="after">
                 <field name="product_default_code" optional="hide"/>
+                <field name="product_barcode" optional="hide"/>
             </xpath>
         </field>
     </record>
