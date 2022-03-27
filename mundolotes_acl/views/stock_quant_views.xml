@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="mundolotes_acl.view_stock_quant_tree_inventory_editable" model="ir.ui.view">
+        <field name="name">mundolotes_acl.view_stock_quant_tree_inventory_editable</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.view_stock_quant_tree_inventory_editable"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='location_id']" position="after">
+                <field name="warehouse_id" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

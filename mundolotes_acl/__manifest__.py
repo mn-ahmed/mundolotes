@@ -14,6 +14,7 @@
     ],
     'data': [
         'views/res_users_views.xml',
+        'views/stock_quant_views.xml',
     ],
     'demo': [
     ],
