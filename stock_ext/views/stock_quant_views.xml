@@ -25,7 +25,7 @@
                 <field name="product_list_price" widget='monetary' options="{'currency_field': 'currency_id'}" optional="hide"/>
             </xpath>
             <xpath expr="//field[@name='available_quantity']" position="after">
-                <field name="stock_value" widget='monetary' options="{'currency_field': 'currency_id'}" optional="hide"/>
+                <field name="stock_value" widget='monetary' options="{'currency_field': 'currency_id'}" sum="Total Stock Value" optional="hide"/>
             </xpath>
         </field>
     </record>
