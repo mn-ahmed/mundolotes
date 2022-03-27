@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="stock.product_template_action_product" model="ir.actions.act_window">
+            <field name="context">{"search_default_consumable": 1, 'default_detailed_type': 'product', "search_default_real_stock_available": 1}</field>
+        </record>
+
+    </data>
+</odoo>

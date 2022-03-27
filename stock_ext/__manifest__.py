@@ -12,6 +12,7 @@
         'stock',
     ],
     'data': [
+        'views/product_views.xml',
         'views/stock_quant_views.xml',
     ],
     'demo': [
