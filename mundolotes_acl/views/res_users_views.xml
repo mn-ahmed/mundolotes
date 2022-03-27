@@ -18,4 +18,16 @@
             </field>
         </record>
     </data>
+
+    <record id="mundolotes_acl.view_users_tree" model="ir.ui.view">
+        <field name="name">mundolotes_acl.view_users_tree</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='login']" position="after">
+                <field name="warehouse_ids" widget="many2many_tags" optional="show"/>
+            </xpath>
+        </field>
+    </record>
+
 </odoo>
