@@ -24,6 +24,9 @@
                 <field name="currency_id" invisible="1"/>
                 <field name="product_list_price" widget='monetary' options="{'currency_field': 'currency_id'}" optional="hide"/>
             </xpath>
+            <xpath expr="//field[@name='available_quantity']" position="after">
+                <field name="stock_value" widget='monetary' options="{'currency_field': 'currency_id'}" optional="hide"/>
+            </xpath>
         </field>
     </record>
 
