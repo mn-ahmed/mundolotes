@@ -21,6 +21,8 @@
             <xpath expr="//field[@name='product_categ_id']" position="after">
                 <field name="product_default_code" optional="hide"/>
                 <field name="product_barcode" optional="hide"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="product_list_price" widget='monetary' options="{'currency_field': 'currency_id'}" optional="hide"/>
             </xpath>
         </field>
     </record>
