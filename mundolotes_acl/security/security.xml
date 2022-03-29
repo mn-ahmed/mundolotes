@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="mundolotes_acl.stock_quant_user_granted_warehouses_rule" model="ir.rule">
+            <field name="name">mundolotes_acl.stock_quant_user_granted_warehouses_rule</field>
+            <field name="model_id" ref="model_stock_quant"/>
+            <field name="global" eval="True"/>
+            <field name="domain_force">[('warehouse_id','in',[w.id for w in user.allowed_warehouse_ids])]</field>
+            <!-- <field name="groups" eval="[(4, ref('odoocms_hostel.group_hostel_manager'))]"/> -->
+        </record>
+
+    </data>
+</odoo>
