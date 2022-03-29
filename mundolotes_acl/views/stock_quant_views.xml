@@ -10,4 +10,18 @@
             </xpath>
         </field>
     </record>
+
+    <record id="mundolotes_acl.quant_search_view" model="ir.ui.view">
+        <field name="name">mundolotes_acl.quant_search_view</field>
+        <field name="model">stock.quant</field>
+        <field name="inherit_id" ref="stock.quant_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='location_id']" position="after">
+                <field name="warehouse_id"/>
+            </xpath>
+            <xpath expr="//filter[@name='locationgroup']" position="after">
+                <filter string='Warehouse' name="warehouse_idgroup" domain="[]" context="{'group_by': 'warehouse_id'}"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>

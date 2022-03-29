@@ -7,6 +7,6 @@ class StockQuant(models.Model):
     warehouse_id = fields.Many2one(
         string='Warehouse',
         comodel_name='stock.warehouse',
-        related='location_id.warehouse_id'
+        related='location_id.warehouse_id',
+        store=True,
     )
-    

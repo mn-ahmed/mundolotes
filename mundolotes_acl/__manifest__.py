@@ -13,6 +13,8 @@
         'stock',
     ],
     'data': [
+        'security/security.xml',
+
         'views/res_users_views.xml',
         'views/stock_quant_views.xml',
     ],
