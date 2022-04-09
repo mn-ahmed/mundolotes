@@ -24,3 +24,13 @@ class StockMoveLine(models.Model):
         string='Product Sales Price',
         related='product_id.list_price',
     )
+    
+    qty_done_amount = fields.Float(
+        string='Amount',
+        compute='compute_qty_done_amount',
+    )
+        
+    @api.depends('qty_done', 'product_list_price')
+    def compute_qty_done_amount(self):
+        for record in self:
+            record.qty_done_amount = record.qty_done * record.product_list_price 
