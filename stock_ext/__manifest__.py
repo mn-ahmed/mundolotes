@@ -12,8 +12,13 @@
         'stock',
     ],
     'data': [
+
+        'report/report_deliveryslip_summarized.xml',
+        'report/stock_report_views.xml',
+
         'views/product_views.xml',
         'views/stock_quant_views.xml',
+        'views/stock_move_views.xml',
     ],
     'demo': [
     ],
