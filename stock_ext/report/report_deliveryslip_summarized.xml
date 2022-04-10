@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="stock_ext.report_deliveryslip_summarized">
+
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.html_container">
+                    <t t-call="web.external_layout">
+
+                        <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)" />
+                        <t t-set="partner" t-value="o.partner_id or (o.move_lines and o.move_lines[0].partner_id) or False"/>
+
+                        <t t-set="address">
+                            <div name="div_outgoing_address">
+                                <div t-if="o.move_ids_without_package and o.move_ids_without_package[0].partner_id">
+                                    <span>Delivery Address:</span>
+                                    <div t-field="o.move_ids_without_package[0].partner_id"
+                                        t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+                                </div>
+                                <div t-if="o.picking_type_id.code != 'internal' and (not o.move_ids_without_package or not o.move_ids_without_package[0].partner_id) and o.picking_type_id.warehouse_id.partner_id">
+                                    <span>Warehouse Address:</span>
+                                    <div t-field="o.picking_type_id.warehouse_id.partner_id"
+                                        t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+                                </div>
+                            </div>
+                        </t>
+                        <t t-set="information_block">
+                            <div class="row">
+                                <div class="col-7" name="div_incoming_address">
+                                    <div t-if="o.picking_type_id.code=='incoming' and partner">
+                                        <span>Vendor Address:</span>
+                                    </div>
+                                    <div t-if="o.picking_type_id.code=='internal' and partner">
+                                        <span>Warehouse Address:</span>
+                                    </div>
+                                    <div t-if="o.picking_type_id.code=='outgoing' and partner">
+                                        <span>Customer Address:</span>
+                                    </div>
+                                    <div t-if="partner" name="partner_header">
+                                        <div t-field="partner.self"
+                                            t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}'/>
+                                        <p t-if="partner.sudo().vat"><t t-esc="o.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="partner.sudo().vat"/></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+
+                        <div class="page">
+                            <h2>
+                                <span t-field="o.name"/>
+                            </h2>
+                            <div class="row mt32 mb32">
+                                <div t-if="o.origin" class="col-auto" name="div_origin">
+                                    Order:
+                                    <p t-field="o.origin"/>
+                                </div>
+                                <div t-if="o.state" class="col-auto" name="div_sched_date">
+                                    Shipping Date:
+                                    <t t-if="o.state == 'done'">
+                                        <p t-field="o.date_done"/>
+                                    </t>
+                                    <t t-if="o.state != 'done'">
+                                        <p t-field="o.scheduled_date"/>
+                                </t>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <table style="width:100%; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                <tbody>
+
+                                    <tr style="">
+                                        <td style="width:25%; background-color: #fff; border:0px solid #000; padding:0px 0px 0px 0px; vertical-align: top;">
+                                            <table style="width:100%; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                <tr style="">
+                                                    <td style="width:40%; background-color: #fabc75; font-weight: bold; border:0px solid #000; padding:0px 0px 0px 20px;">
+                                                        Category
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="width:75%; background-color: #fff; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                            <table style="width:100%; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                <tr style="">
+                                                    <td style="width:40%; background-color: #fabc75; font-weight: bold; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                        Internal Reference
+                                                    </td>
+                                                    <td style="width:15%; background-color: #fabc75; font-weight: bold; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                        LOT (Count)
+                                                    </td>
+                                                    <td style="width:25%; background-color: #fabc75; font-weight: bold; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                        Sum Of Done (Qty)
+                                                    </td>
+                                                    <td style="width:20%; background-color: #fabc75; font-weight: bold; border:0px solid #000; padding:0px 20px 0px 0px;">
+                                                        Amount
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <t t-set="grand_total_lot_count" t-value="0"/>
+                                    <t t-set="grand_total_qty_done" t-value="0"/>
+                                    <t t-set="grand_total_amount" t-value="0"/>
+
+                                    <t t-foreach="category_dicts" t-as="category_dict">
+                                        <tr style="">
+                                            <td style="width:25%; background-color: #fff; border:0px solid #000; padding:0px 0px 0px 0px; vertical-align: top;">
+                                                <table style="width:100%; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                    <tr style="">
+                                                        <td style="width:40%; background-color: #fff; border:0px solid #000; padding:0px 0px 0px 20px;">
+                                                            <t t-esc="category_dict"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td style="width:75%; background-color: #fff; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                <table style="width:100%; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                    <t t-foreach="category_dict_value['internal_reference_dicts']" t-as="internal_reference_dict">
+                                                        <tr style="">
+                                                            <td style="width:40%; background-color: #fff; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                                <t t-esc="internal_reference_dict['product_id_default_code']"/>
+                                                            </td>
+                                                            <td style="width:15%; background-color: #fff; border:0px solid #000; padding:0px 0px 0px 0px; text-align:right;">
+                                                                <t t-esc="internal_reference_dict['count_lot_id']"/>
+                                                            </td>
+                                                            <td style="width:25%; background-color: #fff; border:0px solid #000; padding:0px 0px 0px 0px; text-align:right;">
+                                                                <t t-esc="internal_reference_dict['sum_qty_done']" t-options='{"widget": "float", "precision": 2}'/>
+                                                            </td>
+                                                            <td style="width:20%; background-color: #fff; border:0px solid #000; padding:0px 20px 0px 0px; text-align:right;">
+                                                                <t t-esc="internal_reference_dict['sum_qty_done_amount']"  t-options="{'widget': 'monetary', 'display_currency': o.move_line_ids_without_package.currency_id}"/>
+                                                            </td>
+                                                        </tr>
+                                                    </t>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        <tr style="">
+                                            <td style="width:25%; background-color: #fff; border:0px solid #000; padding:0px 0px 0px 0px; vertical-align: top;">
+                                                <table style="width:100%; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                    <tr style="">
+                                                        <td style="width:40%; background-color: #DDD; border:0px solid #000; padding:0px 0px 0px 20px;">
+                                                            <t t-esc="category_dict + ' Total'"/>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                            <td style="width:75%; background-color: #fff; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                <table style="width:100%; border:0px solid #000; padding:0px 0px 0px 0px;">
+
+                                                        <tr style="">
+                                                            <td style="width:40%; background-color: #DDD; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                                
+                                                            </td>
+                                                            <td style="width:15%; background-color: #DDD; border:0px solid #000; padding:0px 0px 0px 0px; text-align:right;">
+                                                                <t t-esc="category_dict_value['category_count_lot_id']"/>
+                                                            </td>
+                                                            <td style="width:25%; background-color: #DDD; border:0px solid #000; padding:0px 0px 0px 0px; text-align:right;">
+                                                                <t t-esc="category_dict_value['category_sum_qty_done']" t-options='{"widget": "float", "precision": 2}'/>
+                                                            </td>
+                                                            <td style="width:20%; background-color: #DDD; border:0px solid #000; padding:0px 20px 0px 0px; text-align:right;">
+                                                                <t t-esc="category_dict_value['category_sum_qty_done_amount']" t-options="{'widget': 'monetary', 'display_currency': o.move_line_ids_without_package.currency_id}"/>
+                                                            </td>
+                                                        </tr>
+
+                                                </table>
+                                            </td>
+                                        </tr>
+
+                                    <t t-set="grand_total_lot_count" t-value="grand_total_lot_count + category_dict_value['category_count_lot_id']"/>
+                                    <t t-set="grand_total_qty_done" t-value="grand_total_qty_done + category_dict_value['category_sum_qty_done']"/>
+                                    <t t-set="grand_total_amount" t-value="grand_total_amount + category_dict_value['category_sum_qty_done_amount']"/>
+
+                                    </t>
+
+                                    <tr>
+                                        <td style="width:25%; height:1px; background-color: #fff; border:1px solid #000; padding:0px 0px 0px 0px; vertical-align: top;"></td>
+                                        <td style="width:75%; height:1px; background-color: #fff; border:1px solid #000; padding:0px 0px 0px 0px;"></td>
+                                    </tr>
+
+                                    <tr style="">
+                                        <td style="width:25%; background-color: #fff; border:0px solid #000; padding:0px 0px 0px 0px; vertical-align: top;">
+                                            <table style="width:100%; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                <tr style="">
+                                                    <td style="width:40%; background-color: #fff0e1; border:0px solid #000; padding:0px 0px 0px 20px;">
+                                                        Grand Total
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="width:75%; background-color: #fff; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                            <table style="width:100%; border:0px solid #000; padding:0px 0px 0px 0px;">
+
+                                                    <tr style="">
+                                                        <td style="width:40%; background-color: #fff0e1; border:0px solid #000; padding:0px 0px 0px 0px;">
+                                                            
+                                                        </td>
+                                                        <td style="width:15%; background-color: #fff0e1; border:0px solid #000; padding:0px 0px 0px 0px; text-align:right;">
+                                                            <t t-esc="grand_total_lot_count"/>
+                                                        </td>
+                                                        <td style="width:25%; background-color: #fff0e1; border:0px solid #000; padding:0px 0px 0px 0px; text-align:right;">
+                                                            <t t-esc="grand_total_qty_done" t-options='{"widget": "float", "precision": 2}'/>
+                                                        </td>
+                                                        <td style="width:20%; background-color: #fff0e1; border:0px solid #000; padding:0px 20px 0px 0px; text-align:right;">
+                                                            <t t-esc="grand_total_amount" t-options="{'widget': 'monetary', 'display_currency': o.move_line_ids_without_package.currency_id}"/>
+                                                        </td>
+                                                    </tr>
+
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+
+                        </div>
+                    </t>
+                </t>
+            </t>
+
+        </template>
+    </data>
+</odoo>
