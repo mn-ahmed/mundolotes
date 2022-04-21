@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="stock_barcode_ext.stock_move_line_product_selector" model="ir.ui.view">
+        <field name="name">stock_barcode_ext.stock_move_line_product_selector</field>
+        <field name="model">stock.move.line</field>
+        <field name="inherit_id" ref="stock_barcode.stock_move_line_product_selector"/>
+        <field name="arch" type="xml">
+            
+            <xpath expr="." position="inside">
+                <field name="is_lot_from_production" invisible="1"/>
+            </xpath>
+
+            <xpath expr="//field[@name='qty_done']" position="replace">
+                <field name="qty_done" class="w-50 w-md-100 text-right" options="{'type': 'number'}" placeholder="Quantity"
+                    attrs="{ 'invisible': [('is_lot_from_production','!=',True)] }"
+                />
+                <field name="qty_done" class="" readonly="1" options="{'type': 'number'}" placeholder="Quantity"
+                    attrs="{ 'invisible': [('is_lot_from_production','=',True)] }"
+                />
+            </xpath>
+
+            <xpath expr="//widget[@name='digipad']" position="replace">
+                <widget name="digipad" quantity_field="qty_done" 
+                    attrs="{ 'invisible': [('is_lot_from_production','!=',True)] }"
+                />
+                <span
+                    attrs="{ 'invisible': [('is_lot_from_production','=',True)] }"
+                >
+                    Quantity is not editable, for this Warehouse. Please, select the product and choose a LOT/Serial Number to automatically fill the Quantity.
+                </span>
+            </xpath>
+
+        </field>
+    </record>
+
+</odoo>
