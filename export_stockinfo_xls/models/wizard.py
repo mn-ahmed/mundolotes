@@ -82,13 +82,15 @@ class StockReport(models.TransientModel):
                JOIN sale_order AS s_o ON s_o_l.order_id = s_o.id
                WHERE s_o.state IN ('sale','done')
                AND s_o.warehouse_id = %s
-               AND s_o_l.product_id in %s group by s_o_l.product_id"""
+               AND s_o_l.product_id in %s group by s_o_l.product_id
+               AND availible_qty IS > 0 """
         purchase_query = """
                SELECT sum(p_o_l.product_qty) AS product_qty, p_o_l.product_id FROM purchase_order_line AS p_o_l
                JOIN purchase_order AS p_o ON p_o_l.order_id = p_o.id
                INNER JOIN stock_picking_type AS s_p_t ON p_o.picking_type_id = s_p_t.id
-               WHERE p_o.state IN ('purchase','done')
-               AND s_p_t.warehouse_id = %s AND p_o_l.product_id in %s group by p_o_l.product_id"""
+               WHERE p_o.state IN ('purchase','done'), availible_qty IS > 0
+               AND s_p_t.warehouse_id = %s AND p_o_l.product_id in %s group by p_o_l.product_id
+               AND availible_qty IS > 0 """
         params = warehouse, product_ids if product_ids else (0, 0)
         self._cr.execute(sale_query, params)
         sol_query_obj = self._cr.dictfetchall()
