@@ -68,7 +68,6 @@ class ReportPosPosted(models.AbstractModel):
         return {
             'sessions': sessions,
             'categories': categories,
-            'end_at': fields.end_at,
             'today': fields.Datetime.now(),
             'total_paid': user_currency.round(total),
             'amount_total_without_tax': amount_total_without_tax,
