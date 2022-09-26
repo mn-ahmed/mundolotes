@@ -19,7 +19,7 @@ class ReportPosPosted(models.AbstractModel):
         amount_total_return = 0
         orders = []
         for session in sessions:
-            for order in session.order_ids.filtered(lambda x: x.state in ['paid', 'done', 'invoiced']):
+            for order in session.order_ids.filtered(lambda x: x.state in ['paid', 'done', 'invoiced', 'posted']):
                 orders.append(order.id)
                 currency = order.pricelist_id.currency_id
                 amount_tax = currency.round(
