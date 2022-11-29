@@ -1,0 +1,541 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* pos_loyalty_odoo
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 15.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-07-12 04:15+0000\n"
+"PO-Revision-Date: 2022-07-12 04:15+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: pos_loyalty_odoo
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.pos_loyalty_setting_form_view
+msgid ""
+"<b style=\"color:blue\"> \n"
+"\t\t\t\t\t\t\t\t\t<span>1 Point(s)</span>\n"
+"\t\t\t\t\t\t\t\t\t</b>\n"
+"\t\t\t\t\t\t\t\t\t<b>\n"
+"\t\t\t\t\t\t\t\t\t\t<span>For a Purchase of every</span>\n"
+"\t\t\t\t\t\t\t\t\t</b>"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.pos_category_loyalty_inherit
+msgid ""
+"<b style=\"color:blue\"> \n"
+"\t\t\t\t\t\t\t<span>1 Point(s)   </span>\n"
+"\t\t\t\t\t\t\t</b>\n"
+"\t\t\t\t\t\t\t<b>\n"
+"\t\t\t\t\t\t\t\t<span>For a Purchase of every   </span>\n"
+"\t\t\t\t\t\t\t</b>"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.pos_loyalty_setting_form_view
+msgid ""
+"<b>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t<span>: 1 reward point =</span>\n"
+"\t\t\t\t\t\t\t\t\t\t\t</b>"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.pos_loyalty_setting_form_view
+msgid ""
+"<b>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t<span>Rule :  Points Between</span>\n"
+"\t\t\t\t\t\t\t\t\t\t\t</b>"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.pos_loyalty_setting_form_view
+msgid ""
+"<b>\n"
+"\t\t\t\t\t\t\t\t\t\t\t\t<span>and</span>\n"
+"\t\t\t\t\t\t\t\t\t\t\t</b>"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.view_res_partner_loyalty_form
+msgid "<span class=\"o_stat_text\">Loyalty Points</span>"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__active
+msgid "Active"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_category__amount_footer
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__loyality_amount
+msgid "Amount"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_category__Minimum_amount
+msgid "Amount For loyalty Points"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__amount_footer
+msgid "Amount."
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#, python-format
+msgid "Close"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_history__company_id
+msgid "Company"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model,name:pos_loyalty_odoo.model_res_partner
+msgid "Contact"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_history__create_uid
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__create_uid
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_redeem_rule__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_history__create_date
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__create_date
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_redeem_rule__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields.selection,name:pos_loyalty_odoo.selection__pos_loyalty_history__transaction_type__credit
+msgid "Credit"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_history__partner_id
+msgid "Customer"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_history__date
+msgid "Date"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields.selection,name:pos_loyalty_odoo.selection__pos_loyalty_history__transaction_type__debit
+msgid "Debit"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_history__display_name
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__display_name
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_redeem_rule__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#, python-format
+msgid "Earned Loyalty Points:"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/js/LoyaltyButtonWidget.js:0
+#, python-format
+msgid "Empty Order"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#, python-format
+msgid "Enter number of points to Redeem:"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#, python-format
+msgid "Enter points to redeem"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: code:addons/pos_loyalty_odoo/models/pos_loyalty.py:0
+#, python-format
+msgid ""
+"Expiry Date should not be smaller than Issue Date. please change dates."
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__expiry_date
+msgid "Expiry date"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#, python-format
+msgid "Hello"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_history__id
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__id
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_redeem_rule__id
+msgid "ID"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/js/LoyaltyButtonWidget.js:0
+#, python-format
+msgid "Insufficient Points"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__issue_date
+msgid "Issue Date"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_history____last_update
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting____last_update
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_redeem_rule____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_history__write_uid
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__write_uid
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_redeem_rule__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_history__write_date
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__write_date
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_redeem_rule__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_res_partner__loyalty_amount
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_res_users__loyalty_amount
+msgid "Loyalty Amount"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__loyalty_basis_on
+msgid "Loyalty Basis On"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.pos_loyalty_setting_form_view
+msgid "Loyalty Calculation"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.actions.act_window,name:pos_loyalty_odoo.action_pos_loyalty_setting
+#: model:ir.ui.menu,name:pos_loyalty_odoo.menu_pos_loyalty_setting
+msgid "Loyalty Configuration"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.actions.act_window,name:pos_loyalty_odoo.action_pos_loyalty_history
+#: model:ir.ui.menu,name:pos_loyalty_odoo.menu_pos_loyalty_history
+msgid "Loyalty History"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_redeem_rule__loyality_id
+msgid "Loyalty ID"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.ui.menu,name:pos_loyalty_odoo.menu_pos_loyalty_id
+msgid "Loyalty Management"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_history__points
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_res_partner__loyalty_points1
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_res_users__loyalty_points1
+#, python-format
+msgid "Loyalty Points"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#, python-format
+msgid "Loyalty Points. Total:"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#, python-format
+msgid "Loyalty Reedemption"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_res_partner__loyalty_history_ids
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_res_users__loyalty_history_ids
+msgid "Loyalty history"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.view_res_partner_loyalty_form
+msgid "MY Loyalty Points"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_redeem_rule__max_amt
+msgid "Maximum Points"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: code:addons/pos_loyalty_odoo/models/pos_loyalty.py:0
+#, python-format
+msgid "Minimum Point should not larger than Maximum Point"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_redeem_rule__min_amt
+msgid "Minimum Points"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__name
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_redeem_rule__name
+msgid "Name"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/js/LoyaltyButtonWidget.js:0
+#, python-format
+msgid "No Redemption Rule"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.pos_loyalty_setting_form_view
+msgid "POS Categories"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.pos_loyalty_setting_form_view
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.view_pos_loyalty_setting_tree_view
+msgid "POS Loyalty Configuration"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model,name:pos_loyalty_odoo.model_pos_loyalty_history
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.pos_loyalty_history_form_view
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.view_pos_loyalty_history_tree_view
+msgid "POS Loyalty History"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model,name:pos_loyalty_odoo.model_pos_loyalty_setting
+msgid "POS Loyalty Settings"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_history__order_id
+msgid "POS Order"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields.selection,name:pos_loyalty_odoo.selection__pos_loyalty_setting__loyalty_basis_on__pos_category
+msgid "POS Product Categories"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.pos_loyalty_setting_form_view
+msgid "POS Redeem Rule Form"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model,name:pos_loyalty_odoo.model_pos_redeem_rule
+msgid "POS Redemption Rule"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/js/LoyaltyButtonWidget.js:0
+#, python-format
+msgid "Please add Redemption Rule in loyalty configuration"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/js/LoyaltyButtonWidget.js:0
+#, python-format
+msgid "Please select some products"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model,name:pos_loyalty_odoo.model_pos_category
+msgid "Point of Sale Category"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model,name:pos_loyalty_odoo.model_pos_order
+msgid "Point of Sale Orders"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#, python-format
+msgid "Point(s)"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__product_id
+msgid "Product"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields.selection,name:pos_loyalty_odoo.selection__pos_loyalty_setting__loyalty_basis_on__amount
+msgid "Purchase Amount"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#, python-format
+msgid "Redeem"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/js/LoyaltyButtonWidget.js:0
+#, python-format
+msgid "Redeem Product"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_redeem_rule__reward_amt
+msgid "Redemption Amount"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.pos_loyalty_setting_form_view
+msgid "Redemption Computation"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_setting__redeem_ids
+#: model_terms:ir.ui.view,arch_db:pos_loyalty_odoo.pos_loyalty_setting_form_view
+msgid "Redemption Rule"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#, python-format
+msgid "Reedem Now"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: code:addons/pos_loyalty_odoo/models/pos_loyalty.py:0
+#, python-format
+msgid "Reward amount should not zero or less than zero"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/js/LoyaltyButtonWidget.js:0
+#, python-format
+msgid "Sorry, you already added the redeem product."
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/js/LoyaltyButtonWidget.js:0
+#, python-format
+msgid "Sorry, you do not have sufficient loyalty points."
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#, python-format
+msgid "Total Loyalty Points:"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,field_description:pos_loyalty_odoo.field_pos_loyalty_history__transaction_type
+msgid "Transaction Type"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/js/LoyaltyButtonWidget.js:0
+#, python-format
+msgid "Unknown customer"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,help:pos_loyalty_odoo.field_pos_loyalty_setting__loyalty_basis_on
+msgid "Where you want to apply Loyalty Method in POS."
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: code:addons/pos_loyalty_odoo/models/pos_loyalty.py:0
+#, python-format
+msgid ""
+"You can not apply two Loyalty Configuration within same date range please "
+"change dates."
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: code:addons/pos_loyalty_odoo/models/pos_loyalty.py:0
+#, python-format
+msgid "You can not create Redemption Rule with same points range."
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/js/LoyaltyButtonWidget.js:0
+#, python-format
+msgid "You cannot redeem loyalty points. Select customer first."
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#, python-format
+msgid "Your Loyalty Balance:"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#. openerp-web
+#: code:addons/pos_loyalty_odoo/static/src/xml/pos.xml:0
+#, python-format
+msgid "Your Loyalty Points:"
+msgstr ""
+
+#. module: pos_loyalty_odoo
+#: model:ir.model.fields,help:pos_loyalty_odoo.field_pos_loyalty_history__transaction_type
+msgid "credit/debit loyalty transaction in POS."
+msgstr ""

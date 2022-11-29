@@ -1,0 +1,12 @@
+Versio- 15.0.0.1 : (01/06/2022)
+	- When we remove loyalty point redeem line from the cart that time point not update properly fixed that issue.
+
+Versio- 15.0.0.2 : (04/07/2022)
+	-- From pos when user create refund order that time update loyalty points.
+
+Versio- 15.0.0.3 : (12/07/2022)
+	-- Added translation of Spanish (Spain) es-ES
+	-- In the backend when we set redeemtion rule starting with 50 and if customer not has a more loyalty points at that time get an error while redeem points.
+
+Version- 15.0.0.4 : (15/11/2022)
+	-- When we try to create the customer form pos at that time get an error fixed that issue.
