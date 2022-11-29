@@ -1,0 +1,4 @@
+
+Version 15.0.0.1 : (01-11-21)
+		- Solved issue  of error message on voucher validation in website.
+		- Restrict user to enter only interger value in POS gift coupon create. 
