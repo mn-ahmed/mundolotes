@@ -11,10 +11,13 @@ class LoyaltyController(http.Controller):
     @http.route('/api/loyalty-request/<string:cus_id>', type='http', auth='none', methods=["GET"], csrf=False)
     def get_balance(self, cus_id, **params):
         try:
-            res = {'id': cus_id}
+
             data = request.env['res.partner'].sudo().search([('phone', '=', cus_id)], limit=1)
             _logger.info("response count: {0}".format(len(data)))
-            _logger.info(data[0])
+            customer = data[0]
+            _logger.info(customer["name"])
+
+            res = {'id': cus_id, 'name': customer["name"]}
             return http.Response(
                 json.dumps(res),
                 status=200,
