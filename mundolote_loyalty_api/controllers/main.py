@@ -15,9 +15,10 @@ class LoyaltyController(http.Controller):
             data = request.env['res.partner'].sudo().search([('phone', '=', cus_id)], limit=1)
             _logger.info("response count: {0}".format(len(data)))
             customer = data[0]
-            _logger.info(customer)
-
-            res = {'id': cus_id, 'name': customer["name"], 'points': customer["loyalty_points"]}
+            all_fields = customer.fields_get_keys()
+            for field in all_fields:
+                _logger.info(field)
+            res = {'id': cus_id, 'name': customer["name"]}
             return http.Response(
                 json.dumps(res),
                 status=200,
