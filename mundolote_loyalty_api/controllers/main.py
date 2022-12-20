@@ -12,8 +12,10 @@ class LoyaltyController(http.Controller):
     def get_balance(self, cus_id, **params):
         try:
             res = {'id': cus_id}
+            data = request.env['res.partner'].sudo().search([('phone', '=', cus_id)], limit=1)
+            _logger.info(data)
             return http.Response(
-                json.dumps(res),
+                json.dumps(data),
                 status=200,
                 mimetype='application/json'
             )
