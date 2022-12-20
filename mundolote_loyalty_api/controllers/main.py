@@ -13,9 +13,9 @@ class LoyaltyController(http.Controller):
         try:
             res = {'id': cus_id}
             data = request.env['res.partner'].sudo().search([('phone', '=', cus_id)], limit=1)
-            _logger.info(data)
+            print(data)
             return http.Response(
-                json.dumps(data),
+                json.dumps(res),
                 status=200,
                 mimetype='application/json'
             )
