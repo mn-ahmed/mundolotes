@@ -4,9 +4,19 @@ from odoo.exceptions import UserError
 
 
 class LoyaltyController(http.Controller):
-    @http.route('/api/loyalty-request/<string:cus_id>', type='json', auth='none', methods=["GET"], csrf=False)
+    @http.route('/api/loyalty-request/<string:cus_id>', type='http', auth='none', methods=["GET"], csrf=False)
     def get_balance(self, cus_id, **params):
         try:
-            return {'id': cus_id}
+            res = {'id': cus_id}
+            return http.Response(
+                json.dumps(res),
+                status=200,
+                mimetype='application/json'
+            )
         except Exception as e:
             _logger.error('Error in get_balance: %s', tools.ustr(e))
+            return http.Response(
+                json.dumps(e),
+                status=200,
+                mimetype='application/json'
+            )
