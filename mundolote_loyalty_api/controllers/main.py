@@ -16,7 +16,7 @@ class LoyaltyController(http.Controller):
             _logger.info("response count: {0}".format(len(data)))
             customer = data[0]
 
-            _logger.info(customer["loyalty_points"])
+            _logger.info(customer["loyalty_points1"])
             res = {'id': cus_id, 'name': customer["name"]}
             return http.Response(
                 json.dumps(res),
