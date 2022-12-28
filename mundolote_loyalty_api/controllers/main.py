@@ -9,12 +9,12 @@ _logger = logging.getLogger(__name__)
 
 class LoyaltyController(http.Controller):
     @http.route('/api/loyalty-request', type='json', auth='none', methods=["POST"], csrf=False)
-    def get_balance(self, *args, **post):
+    def get_balance(self, **post):
         key = "QM+jWC=4cb6d5!tHShGAKVUJNq1m2^Zv"
         _logger.info(post)
-        _logger.info(args)
+        _logger.info(post.get("vat"))
         try:
-            vat = post["vat"]
+            vat = post.get("vat")
         except KeyError:
             raise exceptions.AccessDenied(message='`vat` is required.')
 
