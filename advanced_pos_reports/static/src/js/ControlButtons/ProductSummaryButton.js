@@ -26,8 +26,8 @@ odoo.define('advanced_pos_reports.ProductSummaryButton', function (require) {
 
     ProductScreen.addControlButton({
         component: ProductSummaryButton,
-        condition: function () {
-            return true;
+        condition: function() {
+           return this.env.pos.config.alphabot_pos_product_summary;
         },
     });
 

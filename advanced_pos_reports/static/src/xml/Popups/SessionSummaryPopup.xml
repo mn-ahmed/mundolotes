@@ -13,9 +13,14 @@
                             <div style="margin-top: 40px;">
                                 <p class="label">Session</p>
                                 <select class="popup-input" t-model="state.selected_value" style="width: 40%;">
-                                    <option t-foreach="props.sessions" t-as="value" t-att-value="value.id">
-                                        <t t-esc="value.name"/>
-                                    </option>
+                                    <t t-foreach="props.sessions" t-as="value">
+                                        <t t-if="value_index == 1">
+                                            <option t-att-value="value.id" t-att-selected="true"><t t-esc="value.id"/></option>
+                                        </t>
+                                        <t t-else="">
+                                           <option t-att-value="value.id" t-att-selected="undefined"><t t-esc="value.id"/></option>
+                                        </t>
+                                    </t>
                                 </select>
                             </div>
                         </div>

@@ -5,4 +5,5 @@ from . import pos_order
 from . import pos_top_selling_products
 from . import pos_top_selling_categories
 from . import pos_top_selling_customers
+from . import alphabot_pos_config
 
