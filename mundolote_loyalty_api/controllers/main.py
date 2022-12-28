@@ -26,9 +26,16 @@ class LoyaltyController(http.Controller):
 
             data = request.env['res.partner'].sudo().search([('vat', '=', vat)], limit=1)
             _logger.info("response count: {0}".format(len(data)))
+
+            if len(data):
+                return http.Response(
+                    json.dumps({'success': False,'name': '', 'points': 0, 'message': 'No se encontro'}),
+                    status=200,
+                    mimetype='application/json'
+                )
             customer = data[0]
 
-            res = {'id': vat, 'name': customer["name"], 'points': customer["loyalty_points1"]}
+            res = {'success': True,'name': customer["name"], 'points': customer["loyalty_points1"], 'message': ''}
             return http.Response(
                 json.dumps(res),
                 status=200,
@@ -37,7 +44,7 @@ class LoyaltyController(http.Controller):
         except Exception as e:
             _logger.error('Error in get_balance: %s', tools.ustr(e))
             return http.Response(
-                json.dumps(e),
+                json.dumps({'success': False,'name': '', 'points': 0, 'message': e["message"]}),
                 status=200,
                 mimetype='application/json'
             )
