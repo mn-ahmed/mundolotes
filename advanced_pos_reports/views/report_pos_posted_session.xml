@@ -106,13 +106,6 @@
                         </tbody>
                     </table>
 
-                    <br/>
-
-                    <center>
-                        <h3>Firmas:
-                        Cajero:                             Supervisor:</h3>
-                    </center>
-
                     <center>
                         <h3>Payments</h3>
                     </center>
@@ -161,10 +154,15 @@
                             </t>
                         </tbody>
                     </table>
-                    
-                                        <center>
-                        <h3>Notas</h3>
+
+                    <center>
+                        <h3>Firmas</h3>
+                        <h3>Cajero:____________________</h3>
+
+                        
+                        <h3>Supervisor:____________________</h3>
                     </center>
+
 
 <!--                    <p style="page-break-after:always;"/>-->
 
