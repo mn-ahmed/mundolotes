@@ -1,7 +1,7 @@
 import logging
 import json
 
-from odoo import http, _, tools
+from odoo import http, _,exceptions, tools
 from odoo.http import request
 from odoo.exceptions import UserError
 
