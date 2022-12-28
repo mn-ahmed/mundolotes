@@ -109,24 +109,9 @@
                     <br/>
 
                     <center>
-                        <h3>Department Sales</h3>
+                        <h3>Firmas:
+                        Cajero:                             Supervisor:</h3>
                     </center>
-                    <table  class="table table-lg">
-                        <tbody>
-                            <t t-set="total" t-value="0"/>
-                            <tr t-foreach='categories' t-as='category'>
-                                <td><t t-esc="category['name']" /></td>
-                                <td style="text-align: right;"><t t-esc="category['amount']"  t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
-                                <t t-set="total" t-value="total + category['amount']"/>
-                            </tr>
-                            <tr>
-                                <td>Total</td>
-                                <td style="text-align: right;"><t t-esc="total"  t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <br/>
 
                     <center>
                         <h3>Payments</h3>
@@ -171,12 +156,6 @@
                                                  <t t-esc="message_id.body"/>
                                             </td>
                                           </tr>
-                                         
-                                                             <center>
-                        <h3>Firma Cajero                              Firma Supervisor
-                            ___________________                       ______________________</h3>
-                    </center>
-                                         
                                      </t>
                                  </t>
                             </t>
