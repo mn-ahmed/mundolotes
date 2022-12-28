@@ -8,7 +8,7 @@ from odoo.exceptions import UserError
 _logger = logging.getLogger(__name__)
 
 class LoyaltyController(http.Controller):
-    @http.route('/api/loyalty-request', type='http', auth='none', methods=["POST"], csrf=False)
+    @http.route('/api/loyalty-request', website='false', type='json', auth='none', methods=["POST"], csrf=False)
     def get_balance(self, **post):
         key = "QM+jWC=4cb6d5!tHShGAKVUJNq1m2^Zv"
         _logger.info(post)
