@@ -14,7 +14,7 @@ class LoyaltyController(http.Controller):
         _logger.info(post)
         _logger.info(post.get("vat"))
         try:
-            vat = post.get("vat")
+            vat = post["vat"]
         except KeyError:
             raise exceptions.AccessDenied(message='`vat` is required.')
 
