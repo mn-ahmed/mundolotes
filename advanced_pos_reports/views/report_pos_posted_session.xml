@@ -171,6 +171,8 @@
                                                  <t t-esc="message_id.body"/>
                                             </td>
                                           </tr>
+                                         "Firma Cajero                              Firma Supervisor"
+                                         "___________________                       ______________________"
                                      </t>
                                  </t>
                             </t>
