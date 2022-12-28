@@ -23,6 +23,8 @@ class LoyaltyController(http.Controller):
         except KeyError:
             raise exceptions.AccessDenied(message='Invalid Request.')
         try:
+            if secret_key is not key:
+                return json.dumps({'success': False,'name': '', 'points': 0, 'message': 'Missing Permission'})
 
             data = request.env['res.partner'].sudo().search([('vat', '=', vat)], limit=1)
             _logger.info("response count: {0}".format(len(data)))
