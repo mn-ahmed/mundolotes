@@ -27,8 +27,9 @@ class LoyaltyController(http.Controller):
             data = request.env['res.partner'].sudo().search([('vat', '=', vat)], limit=1)
             _logger.info("response count: {0}".format(len(data)))
 
-            if len(data) == 0:
-                return json.dumps({'success': False,'name': '', 'points': null, 'message': 'No se encontro'})
+            if len(data) < 1:
+                return json.dumps({'success': False,'name': '', 'points': 0, 'message': 'No se encontro'})
+
             customer = data[0]
 
             res = {'success': True,'name': customer["name"], 'points': customer["loyalty_points1"], 'message': ''}
