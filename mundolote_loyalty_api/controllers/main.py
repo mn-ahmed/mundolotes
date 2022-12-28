@@ -12,14 +12,13 @@ class LoyaltyController(http.Controller):
     def get_balance(self, *args, **post):
         key = "QM+jWC=4cb6d5!tHShGAKVUJNq1m2^Zv"
         _logger.info(post)
-        payload = json.loads(post)
         try:
-            vat = payload["vat"]
+            vat = post["vat"]
         except KeyError:
             raise exceptions.AccessDenied(message='`vat` is required.')
 
         try:
-            secret_key = payload["secret_key"]
+            secret_key = post["secret_key"]
         except KeyError:
             raise exceptions.AccessDenied(message='Invalid Request.')
         try:
