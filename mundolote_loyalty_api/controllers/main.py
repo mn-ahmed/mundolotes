@@ -27,7 +27,7 @@ class LoyaltyController(http.Controller):
             data = request.env['res.partner'].sudo().search([('vat', '=', vat)], limit=1)
             _logger.info("response count: {0}".format(len(data)))
 
-            if len(data):
+            if len(data) == 0:
                 return http.Response(
                     json.dumps({'success': False,'name': '', 'points': 0, 'message': 'No se encontro'}),
                     status=200,
