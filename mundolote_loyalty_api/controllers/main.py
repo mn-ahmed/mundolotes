@@ -28,23 +28,11 @@ class LoyaltyController(http.Controller):
             _logger.info("response count: {0}".format(len(data)))
 
             if len(data) == 0:
-                return http.Response(
-                    json.dumps({'success': False,'name': '', 'points': 0, 'message': 'No se encontro'}),
-                    status=200,
-                    mimetype='application/json'
-                )
+                return json.dumps({'success': False,'name': '', 'points': null, 'message': 'No se encontro'})
             customer = data[0]
 
             res = {'success': True,'name': customer["name"], 'points': customer["loyalty_points1"], 'message': ''}
-            return http.Response(
-                json.dumps(res),
-                status=200,
-                mimetype='application/json'
-            )
+            return json.dumps(res)
         except Exception as e:
             _logger.error('Error in get_balance: %s', tools.ustr(e))
-            return http.Response(
-                json.dumps({'success': False,'name': '', 'points': 0, 'message': e["message"]}),
-                status=200,
-                mimetype='application/json'
-            )
+            return json.dumps({'success': False,'name': '', 'points': 0, 'message': e["message"]})
