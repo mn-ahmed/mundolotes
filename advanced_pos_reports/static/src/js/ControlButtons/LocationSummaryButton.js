@@ -24,8 +24,8 @@ odoo.define('advanced_pos_reports.LocationSummaryButton', function (require) {
 
     ProductScreen.addControlButton({
         component: LocationSummaryButton,
-        condition: function () {
-            return true;
+        condition: function() {
+           return this.env.pos.config.alphabot_pos_location_summary;
         },
     });
 

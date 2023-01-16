@@ -22,7 +22,7 @@
 
 {
     'name': 'Advanced POS Reports',
-    'version': '15.0.1.0.0',
+    'version': '15.0.22.12.28',
     'summary': """Generates Various Reports From POS Screen and From Reporting Menu""",
     'description': """Generates various reports like Sales summary, top selling products / categories / 
                       customers report, ongoing sessions report, posted sessions report under reporting menu, """,
@@ -46,6 +46,7 @@
         'views/report_pos_top_selling_products.xml',
         'views/report_pos_top_selling_categories.xml',
         'views/report_pos_top_selling_customers.xml',
+        'views/pos_config_view.xml',
     ],
     'assets': {
         'point_of_sale.assets': [

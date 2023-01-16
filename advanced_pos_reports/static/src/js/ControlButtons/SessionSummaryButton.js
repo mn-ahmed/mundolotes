@@ -24,8 +24,8 @@ odoo.define('advanced_pos_reports.SessionSummaryButton', function (require) {
 
     ProductScreen.addControlButton({
         component: SessionSummaryButton,
-        condition: function () {
-            return true;
+        condition: function() {
+           return this.env.pos.config.alphabot_pos_session_summary;
         },
     });
 

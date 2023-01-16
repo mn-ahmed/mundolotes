@@ -26,7 +26,31 @@
                                 <td>Session(s):</td>
                                 <td style="text-align: right;">
                                     <t t-foreach="sessions" t-as="session">
-                                        <t t-esc="session.name"/>
+                                        [<t t-esc="session.name"/>]
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Company(s):</td>
+                                <td style="text-align: right;">
+                                    <t t-foreach="sessions" t-as="session">
+                                        [<t t-esc="session.company_id.name"/> (<t t-esc="session.name"/>)]
+                                    </t>
+                                </td>
+                            </tr>
+                             <tr>
+                                <td>POS(s):</td>
+                                <td style="text-align: right;">
+                                    <t t-foreach="sessions" t-as="session">
+                                        [<t t-esc="session.config_id.name"/> (<t t-esc="session.name"/>)]
+                                    </t>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>User(s):</td>
+                                <td style="text-align: right;">
+                                    <t t-foreach="sessions" t-as="session">
+                                        [<t t-esc="session.user_id.name"/>  (<t t-esc="session.name"/>)]
                                     </t>
                                 </td>
                             </tr>
@@ -82,28 +106,6 @@
                         </tbody>
                     </table>
 
-                    <br/>
-
-                    <center>
-                        <h3>Department Sales</h3>
-                    </center>
-                    <table  class="table table-lg">
-                        <tbody>
-                            <t t-set="total" t-value="0"/>
-                            <tr t-foreach='categories' t-as='category'>
-                                <td><t t-esc="category['name']" /></td>
-                                <td style="text-align: right;"><t t-esc="category['amount']"  t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
-                                <t t-set="total" t-value="total + category['amount']"/>
-                            </tr>
-                            <tr>
-                                <td>Total</td>
-                                <td style="text-align: right;"><t t-esc="total"  t-options="{'widget': 'float', 'precision': currency_precision}"/></td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <br/>
-
                     <center>
                         <h3>Payments</h3>
                     </center>
@@ -123,8 +125,46 @@
                         </tbody>
                     </table>
 
-<!--                    <p style="page-break-after:always;"/>-->
+                     <br/>
 
+                    <center>
+                        <h3>Notas</h3>
+                    </center>
+
+                    <table  class="table table-sm">
+                        <tbody>
+                            <t t-foreach="sessions" t-as="session">
+                                <tr>
+                                    <td>[<t t-esc="session.name"/>]</td>
+                                    <td style="text-align: right;">
+                                    </td>
+                                </tr>
+                                 <t t-foreach="session.message_ids" t-as="message_id">
+                                     <t t-if="message_id.body">
+                                         <tr>
+                                            <td>
+                                                <t t-esc="message_id.date" t-options='{"widget": "datetime"}'/> (<t t-esc="message_id.author_id.name"/>)
+                                            </td>
+                                            <td style="text-align: right;">
+                                                 <t t-esc="message_id.body"/>
+                                            </td>
+                                          </tr>
+                                     </t>
+                                 </t>
+                            </t>
+                        </tbody>
+                    </table>
+
+                    <center>
+                        <h3>Firmas</h3>
+                        <h3>Cajero:____________________</h3>
+
+                        
+                        <h3>Supervisor:____________________</h3>
+                    </center>
+
+
+<!--                    <p style="page-break-after:always;"/>-->
 
                 </div>
 
