@@ -26,6 +26,7 @@ class PosOrderReport(models.Model):
                 SUM(cast(to_char(date_trunc('day',s.date_order) - date_trunc('day',s.create_date),'DD') AS INT)) AS delay_validation,
                 s.id as order_id,
                 s.partner_id AS partner_id,
+                s.employee_id AS employee_id
                 s.state AS state,
                 s.user_id AS user_id,
                 s.company_id AS company_id,
