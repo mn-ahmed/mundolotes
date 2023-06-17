@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+    <t t-name="SalespersonButton" owl="1">
+       <span class="control-button">
+           <i class="fa fa-user"></i>Salesperson
+        </span>
+    </t>
+    <t t-name="Orderline" t-inherit="point_of_sale.Orderline" t-inherit-mode="extension" owl="1">
+        <xpath expr="//t[@t-esc='props.line.get_unit().name']" position="after">
+            <t t-if="env.pos.config.allow_salesperson">
+                <t t-if="props.line.get_line_user()">
+                    <span style="float: right;color:green;font-style: italic;cursor: pointer;">
+                        <t t-if="props.line.get_user_image_url()">
+                            <img t-att-src="props.line.get_user_image_url()" style="width: 25px;height: 25px;border-radius: 16px;vertical-align: middle;}" class="sale_person" t-on-click="setUser"/>
+                        </t>
+                        <t t-esc="props.line.get_line_user().name" class="sale_person"/>
+                        <i class="fa fa-times remove_person" style="color:red;vertical-align: middle;" t-on-click="removeUser"/>
+                    </span>
+                </t>
+                <t t-if="!props.line.get_line_user()">
+                    <span style="float: right;">
+                        <i t-attf-class="fa fa-user-plus sale_person" style="color:orange" t-on-click="setUser"/>
+                    </span>
+                </t>
+            </t>
+        </xpath>
+    </t>
+<!--
+    <t t-extend="Orderline">
+        <t t-jquery="li[class*='info']:first" t-operation="append">
+            <t t-if="widget.pos.config.allow_salesperson">
+                <t t-if="line.get_line_user()">
+                    <span style="float: right;color:green;font-style: italic;cursor: pointer;">
+                        <t t-if="line.get_user_image_url()">
+                            <img t-att-src="line.get_user_image_url()" style="width: 25px;height: 25px;border-radius: 16px;vertical-align: middle;}" class="sale_person"/>
+                        </t>
+                        <t t-esc="line.get_line_user().name" class="sale_person"/>
+                        <i class="fa fa-times remove_person" style="color:red;vertical-align: middle;"/>
+                    </span>
+                </t>
+                <t t-if="!line.get_line_user()">
+                    <span style="float: right;">
+                        <i t-attf-class="fa fa-user-plus sale_person" style="color:orange"/>
+                    </span>
+                </t>
+            </t>
+        </t>
+    </t> -->
+</templates>
