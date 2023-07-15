@@ -20,9 +20,6 @@
         'point_of_sale.assets': [
             'alphabot_pos/static/src/js/*',
         ],
-        'web.assets_qweb': [
-            'alphabot_pos/static/src/xml/**/*',
-        ],
     },    
 
     'installable': True,
