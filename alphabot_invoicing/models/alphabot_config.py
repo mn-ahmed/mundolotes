@@ -61,7 +61,7 @@ class AccountMove(models.Model):
 
     def _order_fields(self, vals):
         res = super(AccountMove, self)._order_fields(vals)
-        if self.env.company.alphabot_lic_activo and self.alphabot_invoicing_active:
+        if self.alphabot_invoicing_active:
             res.update({
                 'alphabot_estado': vals.get('alphabot_estado') or False,
                 'alphabot_cliente_name': vals.get('alphabot_cliente_name') or False,
@@ -78,7 +78,7 @@ class AccountMove(models.Model):
         return super(AccountMove, self).copy(default)
 
     def _reverse_moves(self, default_values_list=None, cancel=False):
-        if self.env.company.alphabot_lic_activo and self.alphabot_invoicing_active:
+        if self.alphabot_invoicing_active:
             if not default_values_list:
                 default_values_list = [{} for move in self]
             for move, default_values in zip(self, default_values_list):
