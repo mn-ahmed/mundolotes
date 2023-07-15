@@ -8,6 +8,7 @@
 			<notebook position="inside">
 				<page string="Alphabot">
 					<group>
+						<field name="alphabot_lic_activo" class="oe_edit_only"  />
 						<field name="alphabot_lic_estado" readonly="1" />					
 						<field name="alphabot_lic_token" class="oe_edit_only" />
 					</group>

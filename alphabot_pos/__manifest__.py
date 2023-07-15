@@ -9,7 +9,7 @@
     "license": "Other proprietary",
     'category': 'Point of Sale',
     'sequence': 10,
-    'version': '0.15.22.7.13',
+    'version': '0.15.23.04.08',
     'depends': ['base','account','point_of_sale','alphabot_invoicing','pos_restaurant'],
 
     'data': [   
