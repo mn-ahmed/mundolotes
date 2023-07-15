@@ -15,10 +15,23 @@ odoo.define('alphabot.GetCustomer', function(require) {
     });
 
 
+
 	var _super_posmodel = models.PosModel.prototype;
     models.PosModel = models.PosModel.extend({
+        initialize: function(session,attributes)
+        {
+            var company_model = _.find(this.models,function(model)
+            {
+                return model.model === 'res.company';
+            });
+            company_model.fields.push('alphabot_invoicing_active');
+            return _super_posmodel.initialize.call(this,session,attributes);
+        },
         push_and_invoice_order: function (order) {
             var self = this;
+            if (!this.company.alphabot_invoicing_active){
+                return _super_posmodel.push_and_invoice_order.call(this, order);
+            }
             return new Promise((resolve, reject) => {
                 if (!order.get_client()) {
                     reject({ code: 400, message: 'Missing Customer', data: {} });
